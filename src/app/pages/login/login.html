@@ -1,0 +1,39 @@
+<main class="login-page">
+	<section class="login-panel" aria-labelledby="login-title">
+		<div class="brand-block">
+			<span class="brand-mark">EM</span>
+			<div>
+				<p class="eyebrow">Employee Management</p>
+				<h1 id="login-title">Sign in</h1>
+			</div>
+		</div>
+
+		<form class="login-form" #loginForm="ngForm" (ngSubmit)="login()">
+			<label for="username">Username</label>
+			<input
+				id="username"
+				name="username"
+				type="text"
+				autocomplete="username"
+				placeholder="Enter your username"
+				required
+				[(ngModel)]="username"
+			/>
+
+			<label for="password">Password</label>
+			<input
+				id="password"
+				name="password"
+				type="password"
+				autocomplete="current-password"
+				placeholder="Enter your password"
+				required
+				[(ngModel)]="password"
+			/>
+
+			<a class="forgot-password" href="#">Forgot password?</a>
+
+			<button type="submit" [disabled]="loginForm.invalid">Login</button>
+		</form>
+	</section>
+</main>
