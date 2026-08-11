@@ -1,1 +1,80 @@
-<p>Layout works</p>
+<div class="layout-shell">
+    <aside class="sidebar" [class.sidebar-collapsed]="!isMenuOpened()">
+        <div class="sidebar-brand">
+            <span class="brand-mark">EM</span>
+            <div class="brand-text">
+                <p class="brand-label">Employee</p>
+                <h1>Management</h1>
+            </div>
+        </div>
+
+        <nav class="sidebar-nav" aria-label="Main navigation">
+            <a class="nav-link active" routerLink="dashboard">
+                <i class="bi bi-speedometer2"></i>
+                <span>Dashboard</span>
+            </a>
+
+            <a class="nav-link" routerLink="employee-list">
+                <i class="bi bi-people-fill"></i>
+                <span>Employees</span>
+            </a>
+
+            <a class="nav-link" href="#">
+                <i class="bi bi-kanban-fill"></i>
+                <span>Projects</span>
+            </a>
+
+            <a class="nav-link" href="#">
+                <i class="bi bi-calendar-check-fill"></i>
+                <span>Attendance</span>
+            </a>
+
+            <a class="nav-link" href="#">
+                <i class="bi bi-gear-fill"></i>
+                <span>Settings</span>
+            </a>
+        </nav>
+
+        <a class="create-employee-btn" routerLink="employee-form">
+            <i class="bi bi-person-plus-fill"></i>
+            <span>Create Employee</span>
+        </a>
+    </aside>
+
+    <div class="layout-main">
+        <nav class="navbar navbar-dark top-navbar px-3 px-lg-4">
+            <button class="navbar-toggler sidebar-toggle" (click)="toggleMenuIcon()" type="button"
+                aria-label="Toggle sidebar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="user-menu ms-auto">
+                <button class="user-summary" type="button" (click)="toggleUserMenu()" aria-label="Open user menu">
+                    <span class="user-avatar">AU</span>
+                    <div class="text-end">
+                        <p class="user-name">{{loggedInUser.employeeName}}</p>
+                        <span class="user-role">Logged in</span>
+                    </div>
+                </button>
+
+                @if (isUserMenuOpened()) {
+                <div class="user-dropdown">
+                    <a class="user-dropdown-item" href="#">
+                        <i class="bi bi-person-circle"></i>
+                        <span>My Profile</span>
+                    </a>
+
+                    <button class="user-dropdown-item" type="button" (click)="logout()">
+                        <i class="bi bi-box-arrow-right"></i>
+                        <span>Logout</span>
+                    </button>
+                </div>
+                }
+            </div>
+        </nav>
+
+        <main class="content-area">
+            <router-outlet></router-outlet>
+        </main>
+    </div>
+</div>
