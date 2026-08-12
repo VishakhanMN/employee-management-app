@@ -9,36 +9,42 @@
         </div>
 
         <nav class="sidebar-nav" aria-label="Main navigation">
-            <a class="nav-link active" routerLink="dashboard">
+            <a class="nav-link" [class.active]="clickedMenu=='dashboard'" (click)="activeTab('dashboard')"
+                routerLink="dashboard">
                 <i class="bi bi-speedometer2"></i>
                 <span>Dashboard</span>
             </a>
 
-            <a class="nav-link" routerLink="employee-list">
+            <a class="nav-link" [class.active]="clickedMenu=='employees'" (click)="activeTab('employees')"
+                routerLink="employee-list">
                 <i class="bi bi-people-fill"></i>
                 <span>Employees</span>
             </a>
 
-            <a class="nav-link" href="#">
+            <a class="nav-link" [class.active]="clickedMenu=='projects'" (click)="activeTab('projects')"
+                routerLink="projects">
                 <i class="bi bi-kanban-fill"></i>
                 <span>Projects</span>
             </a>
 
-            <a class="nav-link" href="#">
+            <a class="nav-link" [class.active]="clickedMenu=='attendance'" (click)="activeTab('attendance')"
+                routerLink="attendance">
                 <i class="bi bi-calendar-check-fill"></i>
                 <span>Attendance</span>
             </a>
 
-            <a class="nav-link" href="#">
+            <a class="nav-link" [class.active]="clickedMenu=='settings'" (click)="activeTab('settings')"
+                routerLink="settings">
                 <i class="bi bi-gear-fill"></i>
                 <span>Settings</span>
             </a>
+            <a class="create-employee-btn" [class.active]="clickedMenu=='create employee'" (click)="activeTab('create employee')" routerLink="employee-form">
+                <i class="bi bi-person-plus-fill"></i>
+                <span>Create Employee</span>
+            </a>
         </nav>
 
-        <a class="create-employee-btn" routerLink="employee-form">
-            <i class="bi bi-person-plus-fill"></i>
-            <span>Create Employee</span>
-        </a>
+
     </aside>
 
     <div class="layout-main">

@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit, signal, Signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router, RouterLink, RouterOutlet } from '@angular/router';
-import { loggedInEmployeeData } from '../../core/interfaces/interfaces';
+import { EmployeeData } from '../../core/interfaces/interfaces';
 import { GlobalConstant } from '../../core/globalConstants/global.constant';
 
 @Component({
@@ -15,13 +15,15 @@ export class Layout implements OnInit {
 
   isMenuOpened = signal<boolean>(true);
   isUserMenuOpened = signal<boolean>(false);
-  loggedInUser!: loggedInEmployeeData;
+  loggedInUser!: EmployeeData;
+  clickedMenu: string = '';
 
   constructor(private router: Router) { }
 
   ngOnInit(): void {
     const userData = localStorage.getItem(GlobalConstant.LOGIN_LOCAL_KEY);
-    this.loggedInUser = userData ? JSON.parse(userData) : {} as loggedInEmployeeData;
+    this.loggedInUser = userData ? JSON.parse(userData) : {} as EmployeeData;
+    this.clickedMenu = 'dashboard';
   }
 
   toggleMenuIcon(): any {
@@ -35,6 +37,10 @@ export class Layout implements OnInit {
   logout(): void {
     localStorage.removeItem(GlobalConstant.LOGIN_LOCAL_KEY);
     this.router.navigateByUrl('/login');
+  }
+
+  activeTab(tabName: string): void {
+    this.clickedMenu = tabName;
   }
 
 }

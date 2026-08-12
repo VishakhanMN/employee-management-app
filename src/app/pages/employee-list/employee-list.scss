@@ -1,0 +1,187 @@
+.employee-list-page {
+	--page-primary: #3b82f6;
+	--page-text: #f8fafc;
+	--page-muted: rgba(248, 250, 252, 0.68);
+	--page-accent: #38bdf8;
+
+	display: grid;
+	gap: 20px;
+}
+
+.employee-list-header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 16px;
+	padding: 22px 24px;
+	border: 1px solid rgba(248, 250, 252, 0.08);
+	border-radius: 8px;
+	background: rgba(30, 41, 59, 0.62);
+	box-shadow: 0 18px 44px rgba(2, 6, 23, 0.18);
+}
+
+.section-label {
+	margin: 0 0 6px;
+	color: var(--page-accent);
+	font-size: 0.78rem;
+	font-weight: 800;
+	text-transform: uppercase;
+}
+
+.employee-list-header h2 {
+	margin: 0;
+	color: var(--page-text);
+	font-size: 1.65rem;
+	font-weight: 800;
+	line-height: 1.15;
+}
+
+.create-employee-btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 10px;
+	min-height: 44px;
+	padding: 0 16px;
+	border-radius: 8px;
+	background: var(--page-primary);
+	color: var(--page-text);
+	font-weight: 800;
+	text-decoration: none;
+	white-space: nowrap;
+	transition: background-color 160ms ease, transform 160ms ease;
+}
+
+.create-employee-btn i {
+	font-size: 1.05rem;
+	line-height: 1;
+}
+
+.create-employee-btn:hover,
+.create-employee-btn:focus {
+	background: var(--page-accent);
+	color: var(--page-text);
+	outline: 0;
+	transform: translateY(-1px);
+}
+
+.employee-table-card {
+	border: 1px solid rgba(248, 250, 252, 0.08);
+	border-radius: 8px;
+	background: rgba(30, 41, 59, 0.62);
+	box-shadow: 0 24px 60px rgba(2, 6, 23, 0.22);
+	overflow: hidden;
+}
+
+.table-responsive {
+	overflow-x: auto;
+}
+
+.employee-table {
+	width: 100%;
+	min-width: 1040px;
+	border-collapse: collapse;
+	color: var(--page-text);
+}
+
+.employee-table th,
+.employee-table td {
+	padding: 15px 18px;
+	border-bottom: 1px solid rgba(248, 250, 252, 0.08);
+	vertical-align: middle;
+}
+
+.employee-table th {
+	background: rgba(15, 23, 42, 0.72);
+	color: var(--page-accent);
+	font-size: 0.76rem;
+	font-weight: 800;
+	letter-spacing: 0.04em;
+	text-transform: uppercase;
+}
+
+.employee-table td {
+	color: var(--page-muted);
+	font-size: 0.94rem;
+	font-weight: 600;
+}
+
+.employee-table tbody tr {
+	transition: background-color 160ms ease;
+}
+
+.employee-table tbody tr:hover {
+	background: rgba(59, 130, 246, 0.1);
+}
+
+.employee-table tbody tr:last-child td {
+	border-bottom: 0;
+}
+
+.role-badge {
+	display: inline-flex;
+	align-items: center;
+	min-height: 28px;
+	padding: 0 10px;
+	border-radius: 8px;
+	background: rgba(56, 189, 248, 0.14);
+	color: var(--page-accent);
+	font-size: 0.82rem;
+	font-weight: 800;
+}
+
+.table-actions {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+}
+
+.action-btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 7px;
+	min-height: 34px;
+	padding: 0 10px;
+	border: 1px solid rgba(248, 250, 252, 0.1);
+	border-radius: 8px;
+	background: rgba(15, 23, 42, 0.34);
+	color: var(--page-muted);
+	font: inherit;
+	font-size: 0.84rem;
+	font-weight: 800;
+	transition: background-color 160ms ease, border-color 160ms ease, color 160ms ease;
+}
+
+.action-btn i {
+	font-size: 0.95rem;
+	line-height: 1;
+}
+
+.edit-btn:hover,
+.edit-btn:focus {
+	border-color: rgba(56, 189, 248, 0.34);
+	background: rgba(56, 189, 248, 0.14);
+	color: var(--page-accent);
+	outline: 0;
+}
+
+.delete-btn:hover,
+.delete-btn:focus {
+	border-color: rgba(248, 113, 113, 0.34);
+	background: rgba(248, 113, 113, 0.14);
+	color: #fca5a5;
+	outline: 0;
+}
+
+@media (max-width: 640px) {
+	.employee-list-header {
+		align-items: flex-start;
+		flex-direction: column;
+		padding: 20px;
+	}
+
+	.create-employee-btn {
+		width: 100%;
+	}
+}

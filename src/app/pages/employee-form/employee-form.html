@@ -1,1 +1,61 @@
-<p>Employee Form Works</p>
+<section class="employee-form-page">
+	<div class="employee-form-header">
+		<div>
+			<p class="section-label">Employee</p>
+			<h2>Create Employee</h2>
+		</div>
+	</div>
+
+	<form class="employee-form-card">
+		<div class="form-grid">
+			<div class="form-field">
+				<label for="employeeName">Employee Name</label>
+				<input id="employeeName" name="employeeName" type="text" [(ngModel)]="employeeForm.employeeName" placeholder="Enter employee name" />
+			</div>
+
+			<div class="form-field">
+				<label for="contactNo">Contact Number</label>
+				<input id="contactNo" name="contactNo" type="tel" [(ngModel)]="employeeForm.contactNo" placeholder="Enter contact number" />
+			</div>
+
+			<div class="form-field">
+				<label for="emailId">Email Id</label>
+				<input id="emailId" name="emailId" type="email" [(ngModel)]="employeeForm.emailId" placeholder="Enter email id" />
+			</div>
+
+			<div class="form-field">
+				<label for="department">Department</label>
+				<select id="department" name="department" [(ngModel)]="employeeForm.department">
+                    @for(department of getDepartmentList(); track department.departmentId){
+                        <option value="department.departmentName">department.departmentName</option>
+                    }
+				</select>
+			</div>
+
+			<div class="form-field">
+				<label for="gender">Gender</label>
+				<select id="gender" name="gender" [(ngModel)]="employeeForm.gender">
+					<option value="">Select gender</option>
+					<option value="Male">Male</option>
+					<option value="Female">Female</option>
+					<option value="Other">Other</option>
+				</select>
+			</div>
+
+			<div class="form-field">
+				<label for="role">Role</label>
+				<input id="role" name="role" type="text" [(ngModel)]="employeeForm.role" placeholder="Enter role" />
+			</div>
+
+			<div class="form-field">
+				<label for="createdDate">Created Date</label>
+				<input id="createdDate" name="createdDate" type="date" [(ngModel)]="employeeForm.createdDate" />
+			</div>
+		</div>
+
+		<div class="form-actions">
+			<button class="secondary-btn" type="reset">Reset</button>
+			<button class="primary-btn" type="button">Save Employee</button>
+		</div>
+	</form>
+</section>

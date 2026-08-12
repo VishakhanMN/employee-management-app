@@ -1,1 +1,58 @@
-<p>Employee list Works</p>
+<section class="employee-list-page">
+    <div class="employee-list-header">
+        <div>
+            <p class="section-label">Directory</p>
+            <h2>Manage Employees</h2>
+        </div>
+
+        <a class="create-employee-btn" routerLink="/admin/employee-form">
+            <i class="bi bi-person-plus-fill"></i>
+            <span>Create Employee</span>
+        </a>
+    </div>
+
+    <div class="employee-table-card">
+        <div class="table-responsive">
+            <table class="employee-table">
+                <thead>
+                    <tr>
+                        <th>Employee Id</th>
+                        <th>Employee Name</th>
+                        <th>Contact Number</th>
+                        <th>Email Id</th>
+                        <th>Department Id</th>
+                        <th>Gender</th>
+                        <th>Role</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (employee of getEmployeeList(); track employee.employeeId) {
+                    <tr>
+                        <td>{{employee.employeeId}}</td>
+                        <td>{{employee.employeeName}}</td>
+                        <td>{{employee.contactNo}}</td>
+                        <td>{{employee.emailId}}</td>
+                        <td>{{employee.deptId}}</td>
+                        <td>{{employee.gender}}</td>
+                        <td>{{employee.role}}</td>
+                        <td>
+                            <div class="table-actions">
+                                <button class="action-btn edit-btn" type="button" aria-label="Edit employee">
+                                    <i class="bi bi-pencil-square"></i>
+                                    <span>Edit</span>
+                                </button>
+
+                                <button class="action-btn delete-btn" type="button" aria-label="Delete employee">
+                                    <i class="bi bi-trash3-fill"></i>
+                                    <span>Delete</span>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
